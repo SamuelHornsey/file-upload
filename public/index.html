@@ -12,10 +12,22 @@
 </head>
 
 <body>
+    <app-menu class="menu js-menu">
+        <div class="menu-el js-delete">Delete</div>
+        <div class="menu-el js-download">Download</div>
+    </app-menu>
+
+    <div class="confirm js-confirm">
+        <div class="modal">
+            <h3>Are you sure?</h3>
+            <button>Cancel</button>
+            <button>Confirm</button>
+        </div>
+    </div>
+
     <header>
         <h1>File Drop</h1>
     </header>
-
 
     <section class="upload js-upload">
         <div class="inner">
@@ -34,6 +46,7 @@
     <section class="files columns js-files">
     </section>
 
+    <script src="/static/js/menu.js"></script>
     <script type="module" src="/static/js/main.js"></script>
 </body>
 

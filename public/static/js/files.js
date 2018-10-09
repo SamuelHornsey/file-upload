@@ -3,9 +3,11 @@ export default class Files {
         this.element = document.querySelector('.js-files');
         this.upload = document.querySelector('.js-upload');
         this.control = document.querySelector('.js-grid-control');
+        this.menu = document.querySelector('app-menu');
 
         this._get = this._get.bind(this);
         this._toggleGrid = this._toggleGrid.bind(this);
+        this._rightClick = this._rightClick.bind(this);
 
         this._get();
         this.upload.addEventListener('reload', this._get);
@@ -50,6 +52,7 @@ export default class Files {
             `
 
             el.addEventListener('click', this._onClick);
+            el.addEventListener('contextmenu', this._rightClick)
 
             this.element.appendChild(el);
         }
@@ -72,5 +75,11 @@ export default class Files {
             this.element.classList.add('columns');
             this.element.classList.remove('grid');
         }
+    }
+
+    _rightClick (event) {
+        event.preventDefault()
+        this.menu.show(event);
+        this._onClick(event);
     }
 }
